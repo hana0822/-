@@ -1,0 +1,94 @@
+header{
+    width: 400px;
+    height: 100%;
+    position: fixed;
+    top:0px;
+    left:0px;
+    background: linear-gradient(45deg, aqua, royalblue);
+
+    h1{
+        font:bold 50px/1 "orbitron";
+        color:#fff;
+        letter-spacing: 1px;
+        position: absolute;
+        left:13%;
+        top:50%;
+        transform:translateY(-200%); // -50%면 정중아에 위체, -200%는 정중앙에서 살짝 위쪽으로 위치 ,자기 글짜의 2배 크기만큰 위로
+
+        &::before{
+            content:"cosy & comfort";
+            font:14px/1 "orbitron";
+            color:#fff;
+            letter-spacing: 2px;
+            position: absolute;
+            left:0px;
+            top:100px;   
+        }
+
+        &::after{
+            content:"";
+            display: block;
+            width: 130px;
+            height: 2px;
+            background: #fff;
+            margin-top: 20px;
+        }
+    }
+    ul{
+        position: absolute;
+        left:40px;
+        bottom: 100px;
+
+        li{
+            float:left;
+            margin-right: 15px;
+
+            a{
+                font-size: 20px;
+                color:#fff;
+
+                span{
+                    transform: scale(0.7);   //transform는 인라인요소에 동작이 안된다. transform하려면 블럭화 또는 인라인 블럭을 시켜야 한다. 
+                    display: inline-block;
+                    transform-origin: center; //transform 기준을 왼쪽에서 맞춰서 센터 left center인데 난 보기가 안좋아서 그냥 center 
+                }
+            }
+        }
+    }
+}
+
+@media  screen and (max-width:1199px){
+    header{
+        width: 100%;
+        height: 80px;
+        position:relative;
+
+        h1{
+            font:bold 24px/1 "orbitron";
+            transform:translateY(-50%);
+            left:50px;
+
+            &::before, &::after{
+                display: none;
+            }
+        }
+        ul{
+            left:auto; //left값이 설정되어 있으면 초기화 auto 
+            right:50px;
+            bottom:25px;
+        }
+    }
+}
+@media screen and (max-width: 469px) {
+    header{
+    h1{
+        font-size:20px;
+    }
+        ul li{
+            margin-left: 3px;
+            a span{
+                display: none;
+            }    
+        }
+    }
+}
